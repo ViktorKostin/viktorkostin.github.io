@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body {margin: 0px}
+	canvas {width: 100%; width: 100%;}
+	</style>
+</head>
+<body>
+<script type="text/javascript" src="three.min.js"></script>
+<script type="text/javascript" src='handlekey.js'></script>
+<script type="text/javascript">
+	var scene = new THREE.Scene();
+	var camera = new THREE.PerspectiveCamera( 45, window.innerWidth/window.innerHeight, 0.1, 1000);
+	var renderer = new THREE.WebGLRenderer();
+	renderer.setClearColor(0xf1f);
+	renderer.setSize(window.innerWidth, window.innerHeight);
+	document.body.appendChild(renderer.domElement);
+	renderer.setPixelRatio(window.devicePixelRatio)
+	var light = new THREE.AmbientLight( 0xffffff, 0.9 );
+	scene.add(light);
+	var geometry = new THREE.TorusGeometry( 40, 10, 40, 300 );
+	var material = new THREE.MeshLambertMaterial( {
+		color: 0xffffff,
+		map: new THREE.TextureLoader().load('lavatile.jpg')} );
+	var mesh = new THREE.Mesh(geometry, material);
+
+	var material2 = new THREE.LineBasicMaterial({color: 0x0000ff, linewidth: 3});
+	var geometry2 = new THREE.Geometry();
+	geometry2.vertices.push(new THREE.Vector3(-100, 0, 0));
+	geometry2.vertices.push(new THREE.Vector3 (0, 100, 0));
+	geometry2.vertices.push(new THREE.Vector3 (100, 0, 0));
+	geometry2.vertices.push(new THREE.Vector3 (0, -100, 0));
+	geometry2.vertices.push(new THREE.Vector3 (-100, 0, 0));
+	var mesh2 = new THREE.Line( geometry2, material2);
+	
+    var material3 = new THREE.LineBasicMaterial({color: 0x00ff, linewidth: 3});
+	var geometry3 = new THREE.Geometry();
+	geometry3.vertices.push(new THREE.Vector3(-100, -100, 0));
+	geometry3.vertices.push(new THREE.Vector3 (-100, 100, 0));
+	geometry3.vertices.push(new THREE.Vector3 (100, 100, 0));
+	geometry3.vertices.push(new THREE.Vector3 (100, -100, 0));
+	geometry3.vertices.push(new THREE.Vector3 (-100, -100, 0));
+	var mesh3 = new THREE.Line( geometry3, material3);
+	scene.add(mesh2, mesh3);
+	mesh.rotation.y+=12;
+	scene.add(mesh);
+	camera.position.z = 500;
+	var input = new Input();
+	arr=[mesh,mesh2,mesh3];
+	function loop() {
+		requestAnimationFrame(loop);
+		mesh2.rotation.x+=2.09;
+		mesh3.rotation.y+=2.09;
+		mesh.rotation.x+=0.01;
+if (input.rightKey) {
+	arr.forEach(function(index){index.position.x+=1;})
+}
+if (input.leftKey) {
+	arr.forEach(function(index){index.position.x-=1;})
+}
+if (input.upKey) {
+	arr.forEach(function(index){index.position.y+=1;})
+}
+if (input.keyDown) {
+	arr.forEach(function(index){index.position.y-=1;})
+}
+if (input.zoomIn) {
+	camera.position.z+=2;
+}
+if (input.zoomOut) {
+	camera.position.z-=2;
+}
+		//mesh.rotation.y+=0.01;
+		renderer.render(scene, camera);
+	};
+	loop(); 
+
+</script>
+
+
+</body>
+</html>

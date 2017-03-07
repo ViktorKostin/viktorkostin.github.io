@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kostin</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' type="text/css" href='css/index.css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" href="media/predator.ico">
+</head>
+<body style=" background-color: #000">
+<div id="navbar"></div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(function() {
+		$('#navbar').load('snippets/navbar.html');
+		$('#society').load('snippets/social_icons.html');
+		$(document).ready(function() {
+			$('#li1').addClass('active');
+			dat('date1');
+		})
+	})
+})
+
+</script>
+
+<div class="container" style="color: #aaa">
+	<div class="page-header">
+      <h1 style="text-align: center; margin-top: 8px">Кто создатель?</h1>      
+    </div>
+	<!--<img src="./media/me.jpg" class="img-rounded" alt="My photo" width="304" height="236" style="display: block; margin: 0px auto 20px auto ">-->
+	<p>Приветствую тебя!</p>
+	<p>Меня зовут Виктор, мне <span id="date1"></span> и я веб-программист.</p>
+	<h3>Какие технологии знаю?</h3>
+	<p>HTML5, CSS3, JavaScript, Bootstrap 3, PHP, MySQL.</p>
+	<h3>Что нравится?</h3>
+	<p>Наука, компьютеры, автоматизация.</p>
+	<h3>Кто вдохновляет?</h3>
+	<p>Билл Гейтс, Илон Маск.</p>
+	<hr>
+</div>
+
+
+
+
+
+
+<div class="container" style="margin-top: 5em">
+  <div class="row">
+    <div class="footer">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 col-xs-12"><div id="society" style="text-align: center"></div></div>
+      <div class="col-md-4 col-xs-12"><div id="time1" style="text-align: center"></div></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src='js/time.js'></script>
+</body>
+</html>

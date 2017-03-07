@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <style type="text/css">
+        body {
+            background-color: black;
+            font-family: cursive;
+            color: white;
+            text-align: center;
+        }
+        h1 {
+             margin-top: 250px;
+             font-size: 80px;
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+        }
+        i {
+            color: #a00;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h2>Нажмите любую стрелку<br>
+<i class="fa fa-arrow-left"></i>
+<i class="fa fa-arrow-up"></i>
+<i class="fa fa-arrow-right"></i>
+<i class="fa fa-arrow-down"></i> <br>
+на клавиатуре</h2>
+
+<script>
+var halfHeighth2=document.getElementsByTagName('h2')[0].offsetHeight/2;
+var halfHeight = window.innerHeight/2-halfHeighth2+'px';
+document.addEventListener("keydown", myFunction);
+document.getElementsByTagName('h2')[0].style.marginTop=halfHeight;
+function myFunction(e) {
+if(e.keyCode==39) {
+    document.getElementsByTagName("body")[0].innerHTML = "<h1>Black</h1>";
+    document.getElementsByTagName('body')[0].style.backgroundColor='#111';
+    }
+if(e.keyCode==37) {
+    document.getElementsByTagName("body")[0].innerHTML = "<h1>Red</h1>"; 
+    document.getElementsByTagName('body')[0].style.backgroundColor='#af3000'; 
+    }
+if(e.keyCode==38) {
+    document.getElementsByTagName('body')[0].innerHTML = "<h1>Green</h1>"; 
+    document.getElementsByTagName('body')[0].style.backgroundColor='#004f00'; }
+if(e.keyCode==40) {
+    document.getElementsByTagName('body')[0].innerHTML = "<h1>Yellow</h1>";   
+    document.getElementsByTagName('body')[0].style.backgroundColor='#d97903'; }
+}
+
+</script>
+
+</body>
+</html>

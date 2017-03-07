@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kostin</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' type="text/css" href='css/index.css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="icon" href="media/predator.ico">
+</head>
+<body style=" background-color: #000">
+<div id="navbar"></div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(function() {
+		$('#navbar').load('snippets/navbar.html');
+		$('#society').load('snippets/social_icons.html');
+		$(document).ready(function() {
+			$('#li3').addClass('active');
+			$(document).ready(function() {
+				var footHeight=document.getElementById('foot').offsetHeight;
+				var halfHeightD=document.getElementById('data').offsetHeight/2;
+				var halfHeightD = window.innerHeight/2-halfHeightD-footHeight;
+				document.getElementById('data').style.marginTop=halfHeightD+'px';
+				var heightS=halfHeightD-footHeight;
+				document.getElementById('foot').style.marginTop=heightS+'px';
+			})
+		})
+	})
+})
+
+</script>
+<div id="data" class="row" style="text-align: center;">
+	<div class="col-sm-12">
+		<i class="fa fa-envelope-o" style="color: #004080; font-size: 30px"></i><img src="media/mail.jpg" style="margin-top: -20px">
+	</div>
+	<div class="col-sm-12">
+		<i class="fa fa-mobile" style="color: #004080; font-size: 35px"></i><img src="media/phone.jpg" style="margin-top: -20px">
+	</div>
+</div>
+
+
+
+<div class="container">
+  <div id='foot' class="row">
+    <div class="footer">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 col-xs-12"><div id="society" style="text-align: center"></div></div>
+      <div class="col-md-4 col-xs-12"><div id="time1" style="text-align: center"></div></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+
+</script>
+<script type="text/javascript" src='js/time.js'></script>
+</body>
+</html>

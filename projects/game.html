@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Give+You+Glory" rel="stylesheet">
+    <style>
+      table {
+        border-collapse: collapse;
+        border-style: hidden;
+      }
+      table tr td {
+        border-collapse:collapse;;
+        border: 4px solid #900000;
+        width: 100px;
+        height: 100px;
+        font-family: 'Give You Glory', cursive;
+        color: red;
+        cursor: pointer;
+      }
+      table {
+        font-size: 100px;
+        text-align: center;
+        line-height: 0px;
+        margin: auto;
+        padding-top: 100px;
+      }
+      #winner {
+        text-align: center;
+        font-size: 40px;
+        color:  #218321;
+        margin-top: 1em;
+      }
+      body {
+        background-color: black;
+      }
+
+    </style>
+  </head>
+  <body>
+  <div style="margin-top: 10em;">
+    <table>
+      <tr>
+        <td id='t1'></td>
+        <td id='t2'></td>
+        <td id="t3"></td>
+      </tr>
+      <tr>
+        <td id="t4"></td>
+        <td id='t5'></td>
+        <td id="t6"></td>
+      </tr>
+      <tr>
+        <td id="t7"></td>
+        <td id="t8"></td>
+        <td id="t9"></td>
+      </tr>
+    </table>
+  </div>
+    <script type="text/javascript">
+    var count=0;
+    var total=[];
+    var index=0;
+      $(document).ready(function() {
+        $('td').click(function() {
+          //извлекаем значения из таблицы в массив
+          if(count%2==0) {
+            $(this).text('x');
+            count++;
+            index=$(this).attr('id');
+            total[index]=2;
+          }
+          else {
+            $(this).text('o');
+            count++;
+            index=$(this).attr('id');
+            total[index]=3;
+          }
+          $(document).ready(function() {
+            //сокращаем написание массива для последующей работы с ним
+            var a=total;
+            //парсим на наличие соответствий
+            if ((a['t1']==2&&a['t2']==2&&a['t3']==2) || (a['t4']==2&&a['t5']==2&&a['t6']==2) ||
+                (a['t7']==2&&a['t8']==2&&a['t9']==2) || (a['t1']==2&&a['t4']==2&&a['t7']==2) ||
+                (a['t2']==2&&a['t5']==2&&a['t8']==2) || (a['t3']==2&&a['t6']==2&&a['t9']==2) ||
+                (a['t3']==2&&a['t5']==2&&a['t7']==2) || (a['t1']==2&&a['t5']==2&&a['t9']==2)) {
+                $('#winner').text('X is winner');
+            }
+            if ((a['t1']==3&&a['t2']==3&&a['t3']==3) || (a['t4']==3&&a['t5']==3&&a['t6']==3) ||
+                (a['t7']==3&&a['t8']==3&&a['t9']==3) || (a['t1']==3&&a['t4']==3&&a['t7']==3) ||
+                (a['t2']==3&&a['t5']==3&&a['t8']==3) || (a['t3']==3&&a['t6']==3&&a['t9']==3) ||
+                (a['t3']==3&&a['t5']==3&&a['t7']==3) || (a['t1']==3&&a['t5']==3&&a['t9']==3)) {
+                $('#winner').text('O is winner');
+            }
+            $(document).ready(function() {
+              //показываем пользователю, кто выиграл: "крестик" или "нолик"
+              var winner=$('#winner').text();
+              if (winner=='O is winner') {
+                alert('Победитель O');
+              }
+              if(winner=='X is winner') {
+                alert('Победитель X');
+              }
+              //предлагаем сыграть повторно
+              if (winner=='O is winner'||winner=='X is winner') {
+                var quest=confirm('Хотите сыграть еще?');
+                if (quest==true) {
+                  location.reload();
+                }
+              }
+            });
+            //проверяем через консоль: "всё ли в массиве в порядке", т.е. смотрим соответствие properties and values
+            console.log(total);
+          });
+        });
+
+      });
+
+    </script>
+    <div id="winner"></div>
+    <script type="text/javascript">
+
+    </script>
+  </body>
+</html>
