@@ -14,9 +14,10 @@
 <div id="navbar"></div>
 <script type="text/javascript">
 $(document).ready(function() {
-	$(function() {
-		$('#navbar').load('snippets/navbar.html');
-		$('#society').load('snippets/social_icons.html');
+	$('#navbar').load('snippets/navbar.html');
+	$('#society').load('snippets/social_icons.html');
+	$(document).ready(function() {
+		$('li').removeClass('active');
 		$(document).ready(function() {
 			$('#li3').addClass('active');
 			$(document).ready(function() {
@@ -30,7 +31,6 @@ $(document).ready(function() {
 		})
 	})
 })
-
 </script>
 <div id="data" class="row" style="text-align: center;">
 	<div class="col-sm-12">
