@@ -1,10 +1,11 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @font-face {
-    font-family: "predator";
-    src: local('predator.ttf') format("truetype");
+    font-family: predator;
+    src: local("predator.ttf"), url("https://viktorkostin.github.io/css/predator.ttf"), format("truetype");
+    font-weight: normal;
 }
 #time1 { 
-    font-family: "predator", Verdana, Tahoma;
+    font-family: predator, Verdana, Tahoma;
     font-size: 30px;
     color: #a00;
     background-color: #000;
