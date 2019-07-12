@@ -16,6 +16,7 @@ function time(id)
 	}
 	document.getElementById(id).innerHTML = z1+d.getHours()+' : '+z2+d.getMinutes()+' : '+z3+d.getSeconds();
 }
+time('time1')
 setInterval(function() {time('time1')}, 1000)
 
 function dat(id)
